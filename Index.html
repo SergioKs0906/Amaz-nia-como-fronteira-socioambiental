@@ -1,2 +1,211 @@
-# Amaz-nia-como-fronteira-socioambiental
-Trabalho de educação ambiental 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Amazônia como Fronteira Socioambiental</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌴</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--noite:#0b2a21;--mata:#14513b;--folha:#3aa05a;--rio:#2a7f86;--acai:#5a2a6e;--sol:#f4b63f;--creme:#f3efd9;
+--titulo:"Bricolage Grotesque","Trebuchet MS",sans-serif;--texto:"Nunito Sans","Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:var(--noite);color:var(--creme);font-family:var(--texto);overflow:hidden}
+#folhas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.fronda{transform-box:fill-box;animation:balanco 7s ease-in-out infinite alternate}
+.fronda:nth-child(2){animation-duration:9s;animation-delay:-3s}
+.fronda:nth-child(3){animation-duration:8s;animation-delay:-5s}
+@keyframes balanco{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+#trilho{position:relative;z-index:1;display:flex;height:100%;transition:transform .7s cubic-bezier(.65,0,.25,1)}
+.slide{flex:0 0 100%;height:100%;overflow-y:auto;padding:max(4.5rem,env(safe-area-inset-top)) clamp(1.2rem,8vw,7rem) 6rem;display:flex;flex-direction:column;justify-content:center;gap:1.4rem}
+.slide>*{max-width:62rem}
+h1,h2{font-family:var(--titulo);line-height:1.05}
+h1{font-size:clamp(2.6rem,9vw,6.5rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.9rem,5vw,3.4rem);font-weight:800;color:var(--sol)}
+p,li{font-size:clamp(1.02rem,2.1vw,1.3rem);line-height:1.6}
+.suave{color:#cfd9bd}
+.capa p{font-size:clamp(1.1rem,2.6vw,1.6rem);max-width:36rem}
+.capa .sol{width:clamp(80px,14vw,150px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#ffd77a,var(--sol) 60%,#d98a1c);box-shadow:0 0 80px 20px #f4b63f55;animation:nascer 2.4s ease-out both}
+@keyframes nascer{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+.rio{height:46px;width:100%;max-width:none;margin-top:1rem}
+.rio path{animation:onda 6s linear infinite}
+@keyframes onda{to{transform:translateX(-120px)}}
+.dois{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.caixa{background:#ffffff12;border:2px solid #ffffff30;border-radius:18px;padding:1.2rem 1.4rem}
+.caixa b{font-family:var(--titulo);font-size:1.4rem;display:block;margin-bottom:.4rem}
+.caixa.s b{color:#ffc4f0}.caixa.a b{color:#8fe3a2}
+.tempo{list-style:none;border-left:4px solid var(--sol);padding-left:1.4rem;display:grid;gap:1rem}
+.tempo li{position:relative}
+.tempo li::before{content:"";position:absolute;left:-1.95rem;top:.55rem;width:14px;height:14px;border-radius:50%;background:var(--sol)}
+.tempo b{color:var(--sol)}
+.cartas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;max-width:62rem}
+.carta{all:unset;cursor:pointer;display:block;min-height:150px;perspective:900px}
+.carta:focus-visible{outline:3px solid var(--sol);outline-offset:3px;border-radius:18px}
+.miolo{position:relative;min-height:150px;transition:transform .6s;transform-style:preserve-3d}
+.carta.virada .miolo{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:18px;padding:1.1rem;display:flex;align-items:center;backface-visibility:hidden;font-size:1.05rem;line-height:1.45}
+.frente{background:linear-gradient(150deg,var(--mata),var(--folha));font-family:var(--titulo);font-size:1.5rem;font-weight:800;justify-content:center;text-align:center}
+.verso{background:var(--creme);color:var(--noite);transform:rotateY(180deg)}
+.dica{font-size:.95rem;color:#cfd9bd}
+.destaque{font-family:var(--titulo);font-size:clamp(1.4rem,3.4vw,2.2rem);line-height:1.25;border-left:6px solid var(--sol);padding-left:1.2rem}
+.refs li{margin-bottom:.8rem}
+.fim{background:linear-gradient(160deg,#0000,#5a2a6e66)}
+nav{position:fixed;z-index:5;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;gap:1rem;padding:.9rem 1rem calc(.9rem + env(safe-area-inset-bottom));background:linear-gradient(#0000,#0b2a21f2 45%)}
+nav button{font:700 1rem var(--texto);color:var(--noite);background:var(--sol);border:0;border-radius:99px;padding:.7rem 1.3rem;cursor:pointer}
+nav button:disabled{opacity:.35;cursor:default}
+nav button:focus-visible{outline:3px solid var(--creme);outline-offset:2px}
+#pontos{display:flex;gap:.45rem;flex-wrap:wrap;justify-content:center}
+#pontos button{width:12px;height:12px;padding:0;background:#ffffff55}
+#pontos button[aria-current=true]{background:var(--sol);width:30px}
+#barra{position:fixed;top:0;left:0;height:5px;background:var(--sol);z-index:6;transition:width .6s}
+@media(max-width:640px){.dois{grid-template-columns:1fr}#pontos{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="barra"></div>
+<svg id="folhas" aria-hidden="true" preserveAspectRatio="xMidYMid slice"></svg>
+
+<main id="trilho">
+
+<section class="slide capa" aria-label="Capa">
+  <div class="sol"></div>
+  <h1>Amazônia:<br>fronteira socioambiental</h1>
+  <p>Onde a economia, a floresta e os povos que vivem nela se encontram e disputam o futuro.</p>
+  <p class="dica">Use as setas do teclado, os botões abaixo ou deslize a tela.</p>
+  <svg class="rio" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 23 q30-22 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 V46 H0Z" fill="#2a7f86"/></svg>
+</section>
+
+<section class="slide" aria-label="O que é fronteira">
+  <h2>O que é fronteira?</h2>
+  <p>Não é só uma linha no mapa. Para o sociólogo José de Souza Martins, fronteira é o <b>encontro entre grupos com modos de vida e interesses diferentes</b>: indígenas, ribeirinhos, posseiros, fazendeiros, garimpeiros e empresas.</p>
+  <p>Esse encontro é cheio de tensões, principalmente pela disputa da terra e dos recursos naturais.</p>
+  <p class="destaque">A Amazônia é uma frente de expansão: o capital e o Estado avançam sobre territórios que já têm gente.</p>
+</section>
+
+<section class="slide" aria-label="Por que socioambiental">
+  <h2>Por que "socioambiental"?</h2>
+  <div class="dois">
+    <div class="caixa s"><b>Questão social</b>Terra, direitos, desigualdade e violência no campo.</div>
+    <div class="caixa a"><b>Questão ambiental</b>Floresta, rios, clima e biodiversidade.</div>
+  </div>
+  <p>Uma não existe sem a outra. Quando a floresta é destruída, os povos que dependem dela perdem o território e o modo de vida. <b>Defender a floresta é também defender as pessoas.</b></p>
+</section>
+
+<section class="slide" aria-label="Ocupação">
+  <h2>Como a região foi ocupada</h2>
+  <ul class="tempo">
+    <li><b>Colônia:</b> "drogas do sertão" (cacau, cravo, castanha) e trabalho indígena.</li>
+    <li><b>Ciclo da borracha:</b> do fim do século XIX ao início do XX, migrantes nordestinos vão para os seringais. Riqueza para poucos, vida dura para os seringueiros.</li>
+    <li><b>Anos 1960-70:</b> a ditadura militar adota o lema "integrar para não entregar", com Sudam, incentivos fiscais, rodovias (Transamazônica, Belém-Brasília), colonização e grandes projetos (Carajás, Tucuruí, Jari).</li>
+  </ul>
+  <p class="suave">A floresta foi tratada como "vazio demográfico", ignorando quem já morava ali.</p>
+</section>
+
+<section class="slide" aria-label="Impactos">
+  <h2>Conflitos e impactos</h2>
+  <p class="dica">Toque em cada carta para ver o detalhe.</p>
+  <div class="cartas">
+    <button class="carta"><div class="miolo"><div class="face frente">Desmatamento</div><div class="face verso">Floresta derrubada para pecuária, soja, madeira e estradas. Queimadas agravam o problema.</div></div></button>
+    <button class="carta"><div class="miolo"><div class="face frente">Grilagem</div><div class="face verso">Apropriação ilegal de terras públicas, que gera disputas e violência.</div></div></button>
+    <button class="carta"><div class="miolo"><div class="face frente">Garimpo ilegal</div><div class="face verso">Contamina rios com mercúrio e ameaça a saúde de comunidades indígenas e ribeirinhas.</div></div></button>
+    <button class="carta"><div class="miolo"><div class="face frente">Violência no campo</div><div class="face verso">Muitos conflitos por terra e assassinatos de lideranças e defensores ambientais.</div></div></button>
+    <button class="carta"><div class="miolo"><div class="face frente">Grandes obras</div><div class="face verso">Hidrelétricas e estradas alteram rios, deslocam populações e pressionam áreas protegidas.</div></div></button>
+    <button class="carta"><div class="miolo"><div class="face frente">Clima</div><div class="face verso">Menos umidade, chuvas alteradas e liberação de carbono na atmosfera.</div></div></button>
+  </div>
+</section>
+
+<section class="slide" aria-label="Povos e resistência">
+  <h2>Povos da floresta e resistência</h2>
+  <p>A Amazônia abriga centenas de povos indígenas, além de comunidades ribeirinhas, quilombolas e extrativistas. O modo de vida deles depende da floresta em pé, e a presença deles ajuda a protegê-la.</p>
+  <p><b>Chico Mendes</b> e os seringueiros do Acre defendiam a mata com os "empates", ações pacíficas contra as derrubadas. Ele foi assassinado em 1988, mas sua luta levou à criação das <b>Reservas Extrativistas</b> (a primeira em 1990), que unem justiça social e conservação.</p>
+  <p>A <b>Constituição de 1988</b> reconheceu os direitos indígenas sobre as terras que tradicionalmente ocupam. Terras Indígenas e Unidades de Conservação são hoje barreiras contra o desmatamento.</p>
+</section>
+
+<section class="slide" aria-label="Dimensão global">
+  <h2>Uma questão do mundo todo</h2>
+  <p>A Amazônia influencia o clima do planeta, guarda muito carbono e abriga uma das maiores biodiversidades da Terra.</p>
+  <p>Por isso chama a atenção internacional, com iniciativas como o Fundo Amazônia e a presença nas conferências do clima da ONU (COP). Ao mesmo tempo, surgem debates sobre soberania: quem decide o futuro da região?</p>
+</section>
+
+<section class="slide fim" aria-label="Conclusão">
+  <h2>Conclusão</h2>
+  <p class="destaque">A Amazônia é uma fronteira em disputa entre um modelo de desenvolvimento baseado na exploração dos recursos e outro baseado na sustentabilidade e no respeito aos povos da floresta.</p>
+  <p>Entender essa disputa é essencial para criar políticas que combatam o desmatamento, garantam os direitos das populações tradicionais e permitam um desenvolvimento que não destrua a própria floresta.</p>
+</section>
+
+<section class="slide" aria-label="Referências">
+  <h2>Referências</h2>
+  <ul class="refs suave" style="list-style:none;padding:0">
+    <li>MARTINS, José de Souza. <b>Fronteira: a degradação do Outro nos confins do humano.</b> São Paulo: Hucitec, 1997.</li>
+    <li>BECKER, Bertha K. <b>Amazônia: geopolítica na virada do III milênio.</b> Rio de Janeiro: Garamond, 2004.</li>
+    <li>PORTO-GONÇALVES, Carlos Walter. <b>Amazônia, Amazônias.</b> São Paulo: Contexto, 2001.</li>
+    <li>BRASIL. <b>Constituição da República Federativa do Brasil de 1988.</b> Brasília: Senado Federal, 1988.</li>
+  </ul>
+  <p class="dica">Aluno: José Sérgio &nbsp; Turma: 902 &nbsp; Professor: Carlos</p>
+</section>
+
+</main>
+
+<nav aria-label="Navegação da apresentação">
+  <button id="ant" aria-label="Slide anterior">Anterior</button>
+  <div id="pontos"></div>
+  <button id="prox" aria-label="Próximo slide">Próximo</button>
+</nav>
+
+<script>
+(function(){
+  // Folhas de palmeira desenhadas com código
+  var svg=document.getElementById('folhas'),NS='http://www.w3.org/2000/svg';
+  svg.setAttribute('viewBox','0 0 1000 700');
+  function frond(x,y,rot,s,cor,op){
+    var g=document.createElementNS(NS,'g');g.setAttribute('class','fronda');
+    g.setAttribute('transform','translate('+x+','+y+') rotate('+rot+') scale('+s+')');
+    g.style.transformOrigin='0 0';g.setAttribute('opacity',op);
+    var d='',cx=130,cy=-90,ex=300,ey=40;
+    for(var i=1;i<=18;i++){
+      var t=i/19,px=2*(1-t)*t*cx+t*t*ex,py=2*(1-t)*t*cy+t*t*ey;
+      var tx=2*(1-t)*cx+2*t*(ex-cx),ty=2*(1-t)*cy+2*t*(ey-cy),a=Math.atan2(ty,tx),L=95*(1-t*.55);
+      [-1,1].forEach(function(k){var b=a+k*1.0;d+='M'+px+' '+py+' L'+(px+Math.cos(b)*L)+' '+(py+Math.sin(b)*L);});
+    }
+    var l=document.createElementNS(NS,'path');l.setAttribute('d',d);l.setAttribute('stroke',cor);l.setAttribute('stroke-width','7');l.setAttribute('stroke-linecap','round');l.setAttribute('fill','none');
+    var h=document.createElementNS(NS,'path');h.setAttribute('d','M0 0 Q'+cx+' '+cy+' '+ex+' '+ey);h.setAttribute('stroke',cor);h.setAttribute('stroke-width','5');h.setAttribute('fill','none');
+    g.appendChild(h);g.appendChild(l);svg.appendChild(g);
+  }
+  frond(-10,40,10,1.5,'#2f8f4e',.55);frond(-10,40,45,1.2,'#3aa05a',.45);frond(-10,40,-15,1.1,'#14513b',.7);
+  frond(1010,720,190,1.5,'#2f8f4e',.5);frond(1010,720,225,1.2,'#3aa05a',.4);frond(1010,720,160,1.1,'#14513b',.7);
+
+  // Navegação
+  var trilho=document.getElementById('trilho'),slides=trilho.children,n=slides.length,i=0;
+  var ant=document.getElementById('ant'),prox=document.getElementById('prox'),pontos=document.getElementById('pontos'),barra=document.getElementById('barra');
+  for(var k=0;k<n;k++){(function(k){var b=document.createElement('button');b.setAttribute('aria-label','Ir ao slide '+(k+1));b.onclick=function(){ir(k)};pontos.appendChild(b)})(k)}
+  function ir(novo){
+    i=Math.max(0,Math.min(n-1,novo));
+    trilho.style.transform='translateX(-'+i*100+'%)';
+    ant.disabled=i===0;prox.disabled=i===n-1;
+    barra.style.width=((i+1)/n*100)+'%';
+    for(var k=0;k<n;k++){pontos.children[k].setAttribute('aria-current',k===i);slides[k].setAttribute('aria-hidden',k!==i);slides[k].scrollTop=0}
+    history.replaceState(null,'','#'+(i+1));
+  }
+  ant.onclick=function(){ir(i-1)};prox.onclick=function(){ir(i+1)};
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown')ir(i+1);
+    if(e.key==='ArrowLeft'||e.key==='PageUp')ir(i-1);
+    if(e.key==='Home')ir(0);if(e.key==='End')ir(n-1);
+  });
+  var x0=null;
+  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;
+    if(Math.abs(dx)>60)ir(i+(dx<0?1:-1));
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.carta'),function(c){
+    c.addEventListener('click',function(){c.classList.toggle('virada')});
+  });
+  ir((parseInt(location.hash.slice(1),10)||1)-1);
+})();
+</script>
+</body>
+</html>
